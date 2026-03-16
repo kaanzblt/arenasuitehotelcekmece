@@ -695,3 +695,43 @@ img {
     max-width: 100%;
     height: auto;
 }
+/* 1. Masaüstünde üç çizgiyi gizle */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: var(--ana-renk);
+    z-index: 1001; /* Her şeyin üstünde olsun */
+}
+
+@media (max-width: 992px) {
+    /* 2. Mobilde üç çizgiyi göster */
+    .menu-toggle {
+        display: block !important;
+    }
+
+    /* 3. Menünün Mobildeki Konumu (Gizli Hali) */
+    .nav-links {
+        display: none; /* Önce gizliyoruz */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Header'ın hemen altından başlar */
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 1000;
+        gap: 20px;
+    }
+
+    /* 4. KRİTİK NOKTA: Menü Açıldığında Görünmesini Sağlar */
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+}

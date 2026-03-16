@@ -12,21 +12,19 @@
 <body>
 
     <header>
-        <div class="container nav-content">
-            <a href="#" class="logo">ARENA <span>SUITE</span></a>
-            <ul class="nav-links" id="menu">
-                <li><a href="#home">Ana Sayfa</a></li>
-                <li><a href="#about">Hakkımızda</a></li>
-                <li><a href="#services">Hizmetlerimiz</a></li> 
-                <li><a href="#rooms">Odalarımız</a></li>
-                <li><a href="#policy">Politikalarımız</a></li>
-            </ul>
-            <div class="menu-btn" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </div>
+    <div class="container nav-content">
+        <a href="#" class="logo">ARENA <span>SUITE</span></a>
+        <ul class="nav-links"> <li><a href="#home">Ana Sayfa</a></li>
+            <li><a href="#about">Hakkımızda</a></li>
+            <li><a href="#services">Hizmetlerimiz</a></li> 
+            <li><a href="#rooms">Odalarımız</a></li>
+            <li><a href="#policy">Politikalarımız</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
         </div>
-    </header>
-
+    </div>
+</header>
     <section class="hero" id="home">
         <div class="hero-text">
             <h1>HOŞ GELDİNİZ</h1>
@@ -236,19 +234,20 @@
     </div>
 
     <script>
-        // Menü Açma/Kapama ve Kapatma Fonksiyonu
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('active');
-        }
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-        // Menü linklerine tıklandığında otomatik kapanması için
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('menu').classList.remove('active');
-            });
+    // Menü aç/kapat
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Linke tıklayınca kapat
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
         });
-    </script>
-
+    });
+</script>
 </body>
 </html>
