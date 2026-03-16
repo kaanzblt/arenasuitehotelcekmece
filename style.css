@@ -567,3 +567,63 @@ header {
         right: 20px;
     }
 }
+
+/* --- ARENA SUITE MOBİL ÖZEL AYARLAR --- */
+
+@media (max-width: 992px) {
+    /* 1. Hizmetleri ve Netflix Yazılarını Ortala */
+    .services-list-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+    .service-col ul {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .service-col li {
+        width: fit-content;
+        text-align: center;
+        margin-bottom: 12px;
+        text-underline-offset: 6px;
+    }
+
+    /* 2. Politikaları Mobilde Okunur Yap */
+    .policies-grid {
+        grid-template-columns: 1fr !important; /* Yan yana değil alt alta */
+        gap: 20px;
+        padding: 0 15px;
+    }
+    .policy-item {
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 10px;
+    }
+
+    /* 3. Hoş Geldiniz (Hero) Fotoğrafı Ayarı */
+    .hero {
+        background-attachment: scroll !important; /* Mobilde zoom'u engeller */
+        background-position: center center;
+        background-size: cover;
+        height: 65vh; /* Mobilde daha dengeli bir yükseklik */
+    }
+    .hero-text h1 {
+        font-size: 1.8rem !important;
+    }
+
+    /* 4. Sabit Butonlar (Hemen Ara & WhatsApp) */
+    .fixed-contact-buttons {
+        right: 15px;
+        bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .call-float span, .whatsapp-float span {
+        display: none; /* Mobilde sadece ikonlar kalsın */
+    }
+}
