@@ -555,7 +555,7 @@ header {
     background-color: #128c7e; /* Koyu yeşil hover efekti */
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
-/* --- ARENA SUITE FINAL FIX --- */
+/* --- ARENA SUITE FINAL: HİZMETLER, POLİTİKALAR VE BUTONLAR --- */
 
 /* 1. MASAÜSTÜ VE MOBİLDE ORTAK BUTONLAR (Her Zaman Görünür) */
 .fixed-contact-buttons {
@@ -581,21 +581,19 @@ header {
     justify-content: center !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.25) !important;
     margin: 0 !important;
-    transition: transform 0.3s ease !important;
     text-decoration: none !important;
 }
 
-.call-float:hover, .whatsapp-float:hover { transform: scale(1.1); }
 .call-float { background-color: var(--altin) !important; color: white !important; }
 .whatsapp-float { background-color: #25d366 !important; color: white !important; }
 .call-float i, .whatsapp-float i { font-size: 22px !important; }
 .call-float span, .whatsapp-float span { display: none !important; }
 
-/* 2. SADECE MOBİL AYARLAR (992px Altı) */
-.menu-toggle { display: none; cursor: pointer; font-size: 1.8rem; color: var(--ana-renk); z-index: 1001; }
-
+/* 2. MOBİL UYUMLULUK (Hizmetler, Politikalar ve Menü) */
 @media (max-width: 992px) {
-    .menu-toggle { display: block !important; }
+    /* Menü Butonu */
+    .menu-toggle { display: block !important; cursor: pointer; font-size: 1.8rem; color: var(--ana-renk); z-index: 1001; }
+    
     .nav-links {
         display: none;
         flex-direction: column;
@@ -611,11 +609,38 @@ header {
     }
     .nav-links.active { display: flex !important; }
     .nav-links li { width: 100%; text-align: center; }
+
+    /* Hoş Geldiniz Fotoğraf Ayarı */
     .hero { background-attachment: scroll !important; background-position: center center !important; height: 60vh; }
-    .services-list-grid, .service-col ul, .policy-list, .price-info-box-premium {
-        display: flex !important; flex-direction: column !important; align-items: center !important; text-align: center !important;
+
+    /* HİZMETLERİ ORTALAMA */
+    .services-list-grid, .service-col ul {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
     }
-    .service-col li { width: fit-content !important; margin: 10px auto !important; border-bottom: 2px solid var(--altin); text-decoration: none !important; }
+    .service-col li {
+        width: fit-content !important;
+        margin: 10px auto !important;
+        border-bottom: 2px solid var(--altin);
+        text-decoration: none !important;
+        justify-content: center !important;
+    }
+
+    /* POLİTİKALARI DÜZELTME */
+    .policy-list, .price-info-box-premium {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .policy-list li {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 10px !important;
+    }
 }
 
 /* 3. GENEL TEMİZLİK */
