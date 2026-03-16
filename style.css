@@ -555,167 +555,57 @@ header {
     background-color: #128c7e; /* Koyu yeşil hover efekti */
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
 }
+/* --- ARENA SUITE FINAL FIX: BUTONLAR VE MOBİL AYARLAR --- */
 
-/* --- ARENA SUITE HOTEL - FULL MOBİL UYUMLULUK KATMANI --- */
+/* 1. MASAÜSTÜ VE MOBİLDE ORTAK BUTONLAR (Her zaman görünür) */
+.fixed-contact-buttons {
+    position: fixed !important;
+    bottom: 25px !important;
+    right: 25px !important;
+    left: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    z-index: 9999 !important;
+    width: 60px !important;
+}
 
+.call-float, .whatsapp-float {
+    position: relative !important;
+    width: 55px !important;
+    height: 55px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25) !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    transition: transform 0.3s ease !important;
+}
+
+.call-float:hover, .whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.call-float { background-color: var(--altin) !important; color: white !important; }
+.whatsapp-float { background-color: #25d366 !important; color: white !important; }
+
+.call-float i, .whatsapp-float i { font-size: 22px !important; }
+.call-float span, .whatsapp-float span { display: none !important; }
+
+/* 2. SADECE MOBİL AYARLAR (Ekran küçülünce devreye girer) */
 @media (max-width: 992px) {
-    /* 1. NAVİGASYON VE LOGO */
-    .nav-content {
-        padding: 0 20px;
-    }
-
-    /* 2. HERO (HOŞ GELDİNİZ) DÜZENİ */
-    .hero {
-        background-attachment: scroll !important; /* Mobilde fotoğrafın aşırı zoom yapmasını engeller */
-        background-position: center center !important;
-        height: 60vh; /* Telefon ekranı için ideal yükseklik */
-    }
-
-    .hero-text h1 {
-        font-size: 2rem !important;
-        letter-spacing: 2px;
-    }
-
-    .hero-text p {
-        font-size: 1rem !important;
-        padding: 0 10px;
-    }
-
-    /* 3. HİZMETLERİMİZ - TAM ORTALAMA VE ÇİZGİ AYARI */
-    .services-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .services-list-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .service-col ul {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-    }
-
-    .service-col li {
-        width: fit-content !important; /* Çizginin yazı kadar olması için */
-        justify-content: center;
-        font-size: 1.05rem;
-        margin: 10px 0;
-        text-decoration: underline;
-        text-decoration-color: var(--altin);
-        text-underline-offset: 8px;
-    }
-
-    .service-col li i {
-        display: none; /* Mobilde çizgileri bozmaması için ikonları gizledik */
-    }
-
-    /* 4. KONAKLAMA VE POLİTİKALAR */
-    .policy-wrapper {
-        padding: 25px;
-        margin: 0 15px;
-    }
-
-    .policy-list li {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 10px;
-        background: #fdfcf8;
-        padding: 20px;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        border: 1px solid #eee;
-    }
-
-    .policy-list li strong, .policy-list li span {
-        text-decoration: none; /* Mobilde çok karmaşık durmaması için çizgiyi kaldırdık */
-    }
-
-    /* 5. İSTATİSTİKLER (BANNER) */
-    .stats-banner {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .stat-big-year {
-        font-size: 5rem;
-    }
-
-    /* 6. SABİT İLETİŞİM BUTONLARI (ARAMA & WHATSAPP) */
-    .fixed-contact-buttons {
-        right: 20px;
-        bottom: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        z-index: 9999;
-    }
-
-    .call-float, .whatsapp-float {
-        width: 55px;
-        height: 55px;
-        padding: 0;
-        justify-content: center;
-        border-radius: 50% !important;
-    }
-
-    .call-float span, .whatsapp-float span {
-        display: none; /* Mobilde sadece yuvarlak ikonlar kalsın */
-    }
-
-    .call-float {
-        background-color: var(--altin);
-        color: white;
-        display: flex;
-        align-items: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-}
-
-/* 7. ODA FİYATLARINI KALICI OLARAK SİL */
-.price {
-    display: none !important;
-}
-
-/* 8. GENEL TAŞMA ENGELLEYİCİ */
-* {
-    max-width: 100vw;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-/* 1. Masaüstünde üç çizgiyi gizle */
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-    font-size: 1.8rem;
-    color: var(--ana-renk);
-    z-index: 1001; /* Her şeyin üstünde olsun */
-}
-
-@media (max-width: 992px) {
-    /* 2. Mobilde üç çizgiyi göster */
     .menu-toggle {
         display: block !important;
     }
 
-    /* 3. Menünün Mobildeki Konumu (Gizli Hali) */
     .nav-links {
-        display: none; /* Önce gizliyoruz */
+        display: none;
         flex-direction: column;
         position: absolute;
-        top: 100%; /* Header'ın hemen altından başlar */
+        top: 100%;
         left: 0;
         width: 100%;
         background: white;
@@ -725,13 +615,31 @@ img {
         gap: 20px;
     }
 
-    /* 4. KRİTİK NOKTA: Menü Açıldığında Görünmesini Sağlar */
-    .nav-links.active {
-        display: flex !important;
+    .nav-links.active { display: flex !important; }
+    .nav-links li { width: 100%; text-align: center; }
+
+    .hero {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+        height: 60vh;
     }
 
-    .nav-links li {
-        width: 100%;
-        text-align: center;
+    .services-list-grid, .service-col ul, .policy-list, .price-info-box-premium {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .service-col li {
+        width: fit-content !important;
+        margin: 10px auto !important;
+        border-bottom: 2px solid var(--altin);
+        text-decoration: none !important;
     }
 }
+
+/* 3. GENEL TEMİZLİK */
+.price, .room-card .price { display: none !important; }
+* { max-width: 100vw; }
+img { max-width: 100%; height: auto; }
